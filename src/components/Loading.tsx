@@ -13,9 +13,9 @@ const Loading = ({ percent }: { percent: number }) => {
     if (percent >= 100) {
       const completeTimer = window.setTimeout(() => {
         setLoaded(true);
-        const openTimer = window.setTimeout(() => setIsLoaded(true), 550);
+        const openTimer = window.setTimeout(() => setIsLoaded(true), 350);
         return () => window.clearTimeout(openTimer);
-      }, 250);
+      }, 200);
       return () => window.clearTimeout(completeTimer);
     }
   }, [percent]);
@@ -27,7 +27,10 @@ const Loading = ({ percent }: { percent: number }) => {
       window.setTimeout(() => {
         module.initialFX?.();
         setIsLoading(false);
-      }, 550);
+      }, 400);
+    }).catch(() => {
+      // Never leave the portfolio trapped behind the loader if the intro animation fails.
+      setIsLoading(false);
     });
   }, [isLoaded, setIsLoading]);
 
@@ -78,10 +81,12 @@ export const setProgress = (setLoading: (value: number) => void) => {
     }
   }, 90);
 
+  // Keep the original loading experience, but never block the portfolio for too long
+  // when a 3D asset, decoder or WebGL compilation is slow on a particular device.
   const safety = window.setTimeout(() => {
     percent = 100;
     setLoading(100);
-  }, 10000);
+  }, 4500);
 
   function clear() {
     window.clearInterval(interval);
