@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import setCharacter from "./utils/character";
 import setLighting from "./utils/lighting";
@@ -19,7 +19,6 @@ const Scene = () => {
   const sceneRef = useRef(new THREE.Scene());
   const { setLoading } = useLoading();
 
-  const [character, setChar] = useState<THREE.Object3D | null>(null);
   useEffect(() => {
     if (canvasDiv.current) {
       const rect = canvasDiv.current.getBoundingClientRect();
@@ -60,11 +59,9 @@ const Scene = () => {
           mixer = animations.mixer;
           const loadedCharacter = gltf.scene;
 
-          // The source character remains unchanged; only its scene placement is refined
-          // so it sits centrally in the hero composition across common desktop sizes.
+          // Keep the original 3D character unchanged; only refine its scene placement.
           loadedCharacter.position.x = -3.2;
 
-          setChar(loadedCharacter);
           scene.add(loadedCharacter);
           headBone = loadedCharacter.getObjectByName("spine006") || null;
           screenLight = loadedCharacter.getObjectByName("screenlight") || null;
@@ -89,7 +86,7 @@ const Scene = () => {
       let debounce: number | undefined;
       const onTouchStart = (event: TouchEvent) => {
         const element = event.target as HTMLElement;
-        debounce = setTimeout(() => {
+        debounce = window.setTimeout(() => {
           element?.addEventListener("touchmove", (e: TouchEvent) =>
             handleTouchMove(e, (x, y) => (mouse = { x, y }))
           );
@@ -137,23 +134,21 @@ const Scene = () => {
           canvasDiv.current.removeChild(renderer.domElement);
         }
         if (landingDiv) {
-          landingDiv.removeEventListener("mousemove", onMouseMove);
+          document.removeEventListener("mousemove", onMouseMove);
           landingDiv.removeEventListener("touchstart", onTouchStart);
           landingDiv.removeEventListener("touchend", onTouchEnd);
         }
       };
     }
-  }, []);
+  }, [setLoading]);
 
   return (
-    <>
-      <div className="character-container">
-        <div className="character-model" ref={canvasDiv}>
-          <div className="character-rim"></div>
-          <div className="character-hover" ref={hoverDivRef}></div>
-        </div>
+    <div className="character-container">
+      <div className="character-model" ref={canvasDiv}>
+        <div className="character-rim"></div>
+        <div className="character-hover" ref={hoverDivRef}></div>
       </div>
-    </>
+    </div>
   );
 };
 
