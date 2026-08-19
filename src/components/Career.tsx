@@ -12,46 +12,48 @@ const Career = () => {
           <div className="career-timeline">
             <div className="career-dot"></div>
           </div>
+
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
-              </div>
-              <h3>20XX</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
-              </div>
-              <h3>20XX</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Data Analytics Internship</h4>
+                <h5>Practical Experience</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Hands-on exposure to practical analytics workflows, data preparation,
+              visualization and business-focused reporting. Detailed company and date
+              information can be added to the timeline without changing the layout.
+            </p>
+          </div>
+
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Project-Based Learning</h4>
+                <h5>Data Analytics Portfolio</h5>
+              </div>
+              <h3>2026</h3>
+            </div>
+            <p>
+              Built practical projects using SQL/MySQL, Python, Power BI, Excel,
+              Power Query, DAX and data modeling across e-commerce and retail datasets.
+            </p>
+          </div>
+
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Continuous Development</h4>
+                <h5>Data Analyst / BI</h5>
+              </div>
+              <h3>NOW</h3>
+            </div>
+            <p>
+              Continuing to strengthen analytical SQL, dashboard design, data cleaning,
+              visualization and business intelligence skills through new projects and
+              hands-on practice.
             </p>
           </div>
         </div>
