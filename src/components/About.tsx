@@ -6,9 +6,12 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          I’m Keshav Sharma, an aspiring Data Analyst focused on turning raw data
+          into meaningful business insights. I work hands-on with SQL/MySQL,
+          Power BI, Python, Pandas, Excel, DAX, Power Query and data visualization,
+          building projects around real-world datasets and business questions.
+          My goal is simple: make data easier to understand and more useful for
+          better decisions.
         </p>
       </div>
     </div>
