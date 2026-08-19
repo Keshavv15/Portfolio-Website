@@ -39,7 +39,8 @@ const Scene = () => {
       const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
       camera.position.z = 10;
       camera.position.set(0, 13.1, 24.7);
-      camera.zoom = 0.95;
+      // Restore the source camera framing; do not alter the original character composition.
+      camera.zoom = 1.1;
       camera.updateProjectionMatrix();
 
       let headBone: THREE.Object3D | null = null;
@@ -59,8 +60,8 @@ const Scene = () => {
           mixer = animations.mixer;
           const loadedCharacter = gltf.scene;
 
-          // Keep the original 3D character unchanged; only refine its scene placement.
-          loadedCharacter.position.x = -3.2;
+          // Preserve the original model placement from the source portfolio.
+          loadedCharacter.position.x = 0;
 
           scene.add(loadedCharacter);
           headBone = loadedCharacter.getObjectByName("spine006") || null;
